@@ -4,5 +4,15 @@
 - HTML
 - CSS
 
+### How to use:
+
+```bash
+yarn
+```
+
+```bash
+yarn start
+```
+
 ### Preview
-<img src="preview.png"/>
+<img src="prev.png"/>
