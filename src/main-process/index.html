@@ -10,14 +10,16 @@
 
 <body>
         <div class="main">
-                <div class="holdMsg" id="holdMsg">
-
+                <div class="container">
+                        <div class="holdMsg" id="holdMsg">
+                        </div>
+                        <form action="" onsubmit="event.preventDefault(); clickButton()">
+                                <p class="user"> >> </p>
+                                <input autocomplete="off" id="input" type="text" oninput="putYourCommand()">
+                                <button id="sendBtn" type="button" onclick="send()">Hidden</button>
+                        </form>
                 </div>
-                <form action="" onsubmit="event.preventDefault(); clickButton()">
-                        <p class="user"> >> </p>
-                        <input autocomplete="off" id="input" type="text" oninput="putYourCommand()">
-                        <button id="sendBtn" type="button" onclick="send()">Hidden</button>
-                </form>
+
         </div>
 
         <script>
@@ -41,20 +43,20 @@
                         holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> HAHHAHAHAHHAAHHAHAA YOU WAS HACKED</p>")
                 }
 
-                function help(){
+                function help() {
                         holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> no manual yet </p>")
                 }
-                
 
-                function clear(){
+
+                function clear() {
                         holdMsg.innerHTML = ""
                 }
-                
 
-                function notExitCommand(){
+
+                function notExitCommand() {
                         holdMsg.insertAdjacentHTML("afterbegin", "<p class='go'>this command does not exist</p>")
                 }
-                
+
                 function clickButton() {
                         document.getElementById("sendBtn").click()
                 }
@@ -72,23 +74,23 @@
 
                         holdMsg.insertAdjacentHTML("afterbegin", "<p class='msg'> C:\\Users\\You> <span class='userContent'>" + fullCommand.value + "</span></p>")
 
-                        if(fullCommand.value == "exit"){
+                        if (fullCommand.value == "exit") {
                                 exit()
-                        } 
+                        }
 
-                        else if(fullCommand.value == "ls"){
+                        else if (fullCommand.value == "ls") {
                                 ls()
-                        } 
+                        }
 
-                        else  if(fullCommand.value == "test.py"){
+                        else if (fullCommand.value == "test.py") {
                                 testPy()
-                        } 
-                        else  if(fullCommand.value == "clear" || fullCommand.value == "cls"){
+                        }
+                        else if (fullCommand.value == "clear" || fullCommand.value == "cls") {
                                 clear()
-                        } 
-                        else  if(fullCommand.value == "help" || fullCommand.value == "ajuda"){
+                        }
+                        else if (fullCommand.value == "help" || fullCommand.value == "ajuda") {
                                 help()
-                        } 
+                        }
                         else {
                                 notExitCommand()
                         }
