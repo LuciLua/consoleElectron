@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="UTF-8" />
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
+        <link rel="stylesheet" href="../styles/style.css" type="text/css">
+        <title>Hello, World!</title>
+</head>
+
+<body>
+        <div class="main">
+                <div class="holdMsg" id="holdMsg">
+
+                </div>
+                <form action="" onsubmit="event.preventDefault(); clickButton()">
+                        <input id="input" type="text" oninput="putYourCommand()">
+                        <button id="sendBtn" type="button" onclick="send()">Hidden</button>
+                </form>
+        </div>
+
+        <script>
+                function clickButton() {
+                        document.getElementById("sendBtn").click()
+                }
+
+                function putYourCommand() {
+                        var fullCommand = document.getElementById('input')
+                        console.log(fullCommand.value)
+                }
+
+                function send() {
+                        console.log("clicked!")
+                        var fullCommand = document.getElementById('input')
+
+                        var holdMsg = document.getElementById('holdMsg')
+                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='msg'>" + fullCommand.value + "</p>")
+
+                        fullCommand.value = ""
+                }
+        </script>
+</body>
+
+</html>
