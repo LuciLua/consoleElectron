@@ -15,4 +15,4 @@ yarn start
 ```
 
 ### Preview
-<img src="prev.png"/>
+<img src="preview.png"/>
