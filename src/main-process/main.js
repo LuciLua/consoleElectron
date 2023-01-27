@@ -9,12 +9,21 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 500,
+    titleBarStyle: 'hiddenInset',
+    transparent: true,
+    opacity: 50,
+    // vibrancy: {
+    //   theme: 'light', // (default) or 'dark' or '#rrggbbaa'
+    //   effect: 'acrylic', // (default) or 'blur'
+    //   disableOnBlur: true, // (default)
+    // },
     autoHideMenuBar: true, // remove menuBar from top
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
   })
 
+// mainWindow.setVibrancy(true)
 
   // and load the index.html of the app.
   mainWindow.loadFile('src/main-process/index.html')
