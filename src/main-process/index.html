@@ -5,7 +5,7 @@
         <meta charset="UTF-8" />
         <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
         <link rel="stylesheet" href="../styles/style.css" type="text/css">
-        <title>Hello, World!</title>
+        <title>Overtherminal</title>
 </head>
 
 <body>
@@ -14,12 +14,47 @@
 
                 </div>
                 <form action="" onsubmit="event.preventDefault(); clickButton()">
-                        <input id="input" type="text" oninput="putYourCommand()">
+                        <p class="user"> >> </p>
+                        <input autocomplete="off" id="input" type="text" oninput="putYourCommand()">
                         <button id="sendBtn" type="button" onclick="send()">Hidden</button>
                 </form>
         </div>
 
         <script>
+
+                function exit() {
+                        window.close()
+                }
+
+                function ls() {
+                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> you.bat  23kb</p>")
+                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> New Folder </p>")
+                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> Bin </p>")
+                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> test.py 10kb</p>")
+                }
+
+                function testPy() {
+                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> HAHHAHAHAHHAAHHAHAA YOU WAS HACKED</p>")
+                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> HAHHAHAHAHHAAHHAHAA YOU WAS HACKED</p>")
+                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='go'>GAME OVER</p>")
+                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> HAHHAHAHAHHAAHHAHAA YOU WAS HACKED</p>")
+                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> HAHHAHAHAHHAAHHAHAA YOU WAS HACKED</p>")
+                }
+
+                function help(){
+                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> no manual yet </p>")
+                }
+                
+
+                function clear(){
+                        holdMsg.innerHTML = ""
+                }
+                
+
+                function notExitCommand(){
+                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='go'>this command does not exist</p>")
+                }
+                
                 function clickButton() {
                         document.getElementById("sendBtn").click()
                 }
@@ -34,10 +69,34 @@
                         var fullCommand = document.getElementById('input')
 
                         var holdMsg = document.getElementById('holdMsg')
-                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='msg'>" + fullCommand.value + "</p>")
+
+                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='msg'> C:\\Users\\You> <span class='userContent'>" + fullCommand.value + "</span></p>")
+
+                        if(fullCommand.value == "exit"){
+                                exit()
+                        } 
+
+                        else if(fullCommand.value == "ls"){
+                                ls()
+                        } 
+
+                        else  if(fullCommand.value == "test.py"){
+                                testPy()
+                        } 
+                        else  if(fullCommand.value == "clear" || fullCommand.value == "cls"){
+                                clear()
+                        } 
+                        else  if(fullCommand.value == "help" || fullCommand.value == "ajuda"){
+                                help()
+                        } 
+                        else {
+                                notExitCommand()
+                        }
 
                         fullCommand.value = ""
                 }
+
+
         </script>
 </body>
 

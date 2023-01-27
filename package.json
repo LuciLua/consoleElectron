@@ -6,5 +6,8 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^22.1.0"
+  },
+  "scripts": {
+    "dev": "electron ."
   }
 }
