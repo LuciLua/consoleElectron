@@ -9,20 +9,26 @@
 </head>
 
 <body>
-        <div class="main">
+        <div class="main" onclick="toInputAlways()">
                 <div class="container">
                         <div class="holdMsg" id="holdMsg">
                         </div>
-                        <form action="" onsubmit="event.preventDefault(); clickButton()">
+                        <form onsubmit="event.preventDefault(); clickButton()">
                                 <p class="user"> >> </p>
-                                <input autocomplete="off" id="input" type="text" oninput="putYourCommand()">
+                                <div class="containerInput">
+                                        <div id="caret" class="caret"></div>
+                                        <textarea spellcheck="false" autocomplete="off" id="input"
+                                                oninput="putYourCommand()"></textarea>
+                                </div>
                                 <button id="sendBtn" type="button" onclick="send()">Hidden</button>
                         </form>
                 </div>
-
         </div>
-
         <script>
+
+                function toInputAlways() {
+                        var fullCommand = document.getElementById('input').focus()
+                }
 
                 function exit() {
                         window.close()
@@ -62,14 +68,34 @@
                 }
 
                 function putYourCommand() {
+
                         var fullCommand = document.getElementById('input')
-                        console.log(fullCommand.value)
+
+                        var caret = document.getElementById('caret')
+
+                        for (let i = 0; i < fullCommand.value.length; i++) {
+                                var walking = i + 7
+                                caret.setAttribute("style", 'left:' + walking * 8.4 + 'px')
+                                console.log(caret.style.left)
+                        }
+
+
+                        function mainFunc(e) {
+                                if (e.code === 'Enter') {
+                                        e.preventDefault();
+                                        clickButton();
+                                        caret.setAttribute("style", 'left: 45px')
+                                }
+                        }
+
+                        window.document.addEventListener('keydown', mainFunc, { once: true })
                 }
 
                 function send() {
-                        console.log("clicked!")
-                        var fullCommand = document.getElementById('input')
 
+                        console.log("send!")
+
+                        var fullCommand = document.getElementById('input')
                         var holdMsg = document.getElementById('holdMsg')
 
                         holdMsg.insertAdjacentHTML("afterbegin", "<p class='msg'> C:\\Users\\You> <span class='userContent'>" + fullCommand.value + "</span></p>")

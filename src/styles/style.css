@@ -60,8 +60,11 @@
 
   /* border: 1px solid #555c62; */
 
-  padding: 20px;
+  padding: 10px;
   overflow-y: scroll;
+
+
+  font-size: 13px;
 }
 
 .main .container .holdMsg::-webkit-scrollbar {
@@ -69,8 +72,8 @@
 }
 
 .main .container .holdMsg p.msg {
-  padding: 5px;
-  margin: 3px;
+  padding: 2px;
+  margin: 2px;
   min-width: 100px;
 
   color: rgb(0, 255, 64);
@@ -84,8 +87,8 @@
 }
 
 .main .container .holdMsg p.ls {
-  padding: 5px;
-  margin: 2px 20px;
+  padding: 2px;
+  margin: 2px 30px;
   min-width: 100px;
 
   color: rgb(177, 177, 177);
@@ -123,16 +126,21 @@
   border-radius: 5px;
 
   width: fit-content;
-  height: fit-content;
 
-  height: var(--inputTerminalHeight);
+  height: fit-content;
+  max-height: fit-content;
+
+  /* height: var(--inputTerminalHeight); */
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 
   /* padding: 30px; */
   /* background-color: red; */
   width: 100%;
+
+  /* background-color: darkblue; */
+  top: 0;
 
   position: relative;
 }
@@ -143,59 +151,106 @@
   width: 20px;
   height: 20px;
   position: absolute;
+
+  font-size: 13px;
 }
 
-.main .container form input {
-  background-color: transparent;
-  padding: 15px 0;
-
-  margin-left: 49px;
-
-  width: 100%;
-
-  font-size: 17px;
-
-  /* background-color: #555c62; */
-  /* box-shadow: 0 0 9px #262a2e; */
-  color: rgb(166, 166, 177);
-
-  border: none;
-  border-radius: 5px;
-
-  outline: none;
+.main .container form .containerInput {
   position: relative;
-  /* position: absolute; */
+  /* background-color: red; */
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+
+  height: fit-content;
+  max-height: fit-content;
+
+  overflow: hidden;
+  padding: 0 5px 0 0;
+
+  top: 0;
+  /* border: 1px solid red; */
+
+  display: flex;
 }
 
-.main .container form::before {
+.main .container form .containerInput .caret {
   content: "";
   position: absolute;
-  width: 20px;
-  height: 2px;
+  width: 17px;
+  height: 3px;
 
-  bottom: 5px;
+  top: 17px;
+  /* bottom: 5px; */
   left: 49px;
 
   background-color: #12ff42;
   z-index: 10;
 
   animation: blink 0.8s 0.9s infinite;
+
+}
+
+
+
+.main .container form .containerInput textarea {
+  background-color: transparent;
+  display: flex;
+
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+
+  padding: 0 10px 0 50px;
+
+  height: 23px;
+  min-height: 23px;
+  min-height: 100px;
+
+  /* max-height: 23px; */
+  /* max-height: auto; */
+
+  font-size: 14px;
+
+  cursor: default;
+
+  /* background-color: #555c6273; */
+  /* box-shadow: 0 0 9px #262a2e; */
+  color: rgb(166, 166, 177);
+
+  resize: none;
+
+  border: none;
+  border-radius: 5px;
+
+  outline: none;
+  position: relative;
+
+  top: 0;
+  caret-color: #22262a;
+}
+
+.main .container form .containerInput textarea::selection {
+  background-color: rgb(94, 255, 0);color: #22262a;
+}
+
+.main .container form .containerInput textarea::-webkit-scrollbar {
+  display: none;
 }
 
 @keyframes blink {
-  0%{
+  0% {
     opacity: 0%;
   }
-  40%{
+  40% {
     opacity: 0%;
   }
-  90%{
+  90% {
     opacity: 100%;
   }
-  100%{
+  100% {
     opacity: 100%;
   }
-  
 }
 
 .main .container form button {

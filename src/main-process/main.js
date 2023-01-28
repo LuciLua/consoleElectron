@@ -8,10 +8,8 @@ const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
-    height: 500,
+    height: 470,
     titleBarStyle: 'hiddenInset',
-    transparent: true,
-    opacity: 50,
     // vibrancy: {
     //   theme: 'light', // (default) or 'dark' or '#rrggbbaa'
     //   effect: 'acrylic', // (default) or 'blur'
