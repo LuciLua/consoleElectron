@@ -24,107 +24,13 @@
                         </form>
                 </div>
         </div>
-        <script>
-
-                function toInputAlways() {
-                        var fullCommand = document.getElementById('input').focus()
-                }
-
-                function exit() {
-                        window.close()
-                }
-
-                function ls() {
-                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> you.bat  23kb</p>")
-                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> New Folder </p>")
-                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> Bin </p>")
-                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> test.py 10kb</p>")
-                }
-
-                function testPy() {
-                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> HAHHAHAHAHHAAHHAHAA YOU WAS HACKED</p>")
-                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> HAHHAHAHAHHAAHHAHAA YOU WAS HACKED</p>")
-                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='go'>GAME OVER</p>")
-                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> HAHHAHAHAHHAAHHAHAA YOU WAS HACKED</p>")
-                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> HAHHAHAHAHHAAHHAHAA YOU WAS HACKED</p>")
-                }
-
-                function help() {
-                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='ls'> no manual yet </p>")
-                }
-
-
-                function clear() {
-                        holdMsg.innerHTML = ""
-                }
-
-
-                function notExitCommand() {
-                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='go'>this command does not exist</p>")
-                }
-
-                function clickButton() {
-                        document.getElementById("sendBtn").click()
-                }
-
-                function putYourCommand() {
-
-                        var fullCommand = document.getElementById('input')
-
-                        var caret = document.getElementById('caret')
-
-                        for (let i = 0; i < fullCommand.value.length; i++) {
-                                var walking = i + 7
-                                caret.setAttribute("style", 'left:' + walking * 8.4 + 'px')
-                                console.log(caret.style.left)
-                        }
-
-
-                        function mainFunc(e) {
-                                if (e.code === 'Enter') {
-                                        e.preventDefault();
-                                        clickButton();
-                                        caret.setAttribute("style", 'left: 45px')
-                                }
-                        }
-
-                        window.document.addEventListener('keydown', mainFunc, { once: true })
-                }
-
-                function send() {
-
-                        console.log("send!")
-
-                        var fullCommand = document.getElementById('input')
-                        var holdMsg = document.getElementById('holdMsg')
-
-                        holdMsg.insertAdjacentHTML("afterbegin", "<p class='msg'> C:\\Users\\You> <span class='userContent'>" + fullCommand.value + "</span></p>")
-
-                        if (fullCommand.value == "exit") {
-                                exit()
-                        }
-
-                        else if (fullCommand.value == "ls") {
-                                ls()
-                        }
-
-                        else if (fullCommand.value == "test.py") {
-                                testPy()
-                        }
-                        else if (fullCommand.value == "clear" || fullCommand.value == "cls") {
-                                clear()
-                        }
-                        else if (fullCommand.value == "help" || fullCommand.value == "ajuda") {
-                                help()
-                        }
-                        else {
-                                notExitCommand()
-                        }
-
-                        fullCommand.value = ""
-                }
-
-
+        <script src="../utils/app.js">
+        </script>
+        <script src="../utils/commands.js">
+        </script>
+        <script src="../utils/contentFolder/folders.js">
+        </script>
+        <script src="../utils/programs/programs.js">
         </script>
 </body>
 

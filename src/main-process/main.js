@@ -10,24 +10,14 @@ const createWindow = () => {
     width: 800,
     height: 470,
     titleBarStyle: 'hiddenInset',
-    // vibrancy: {
-    //   theme: 'light', // (default) or 'dark' or '#rrggbbaa'
-    //   effect: 'acrylic', // (default) or 'blur'
-    //   disableOnBlur: true, // (default)
-    // },
     autoHideMenuBar: true, // remove menuBar from top
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
   })
 
-// mainWindow.setVibrancy(true)
-
   // and load the index.html of the app.
   mainWindow.loadFile('src/main-process/index.html')
-
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished
